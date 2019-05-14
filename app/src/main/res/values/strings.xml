@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">小哥欢乐送</string>
+    <string name="format_retry_send">%dS</string>
+</resources>
