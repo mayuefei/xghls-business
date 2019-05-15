@@ -21,6 +21,7 @@ import com.xghls.view.MyProgressDialog;
 
 public class DialogUtil {
     private static MyProgressDialog loadingDialog;
+
     /**
      * 弹出双选提示
      */
@@ -78,11 +79,14 @@ public class DialogUtil {
      * @param isBackDismiss
      */
     public static void showLoadingDialog(Context context, boolean isBackDismiss) {
-        if (loadingDialog != null && loadingDialog.isShowing()) {
-            loadingDialog.dismiss();
+        if (loadingDialog == null) {
+            loadingDialog = new MyProgressDialog(context, R.style.loading_dialog, isBackDismiss);
+        } else {
+            if (loadingDialog.isShowing()) {
+                loadingDialog.dismiss();
+            }
+            loadingDialog.show();
         }
-        loadingDialog = new MyProgressDialog(context, R.style.loading_dialog, isBackDismiss);
-        loadingDialog.show();
     }
 
     /**
